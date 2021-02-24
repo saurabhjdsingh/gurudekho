@@ -1,0 +1,246 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<style>
+   .pricing-table {
+	background: #fff;
+	box-shadow: 0px 5px 7px 5px rgba(0, 0, 0, .15);
+	padding:10px 0 0 0;
+	border-radius: 5px;
+	transition: .3s;
+}
+
+.pricing-table:hover {
+	box-shadow: 0px 8px 10px 8px rgba(0, 0, 0, .15);
+}
+
+.pricing-table .pricing-label {
+	border-radius: 15px;
+	padding: .25rem .5rem;
+	margin-bottom: 0.75rem;
+	display: inline-block;
+	font-size: 12px;
+	font-weight: 500;
+}
+
+.pricing-table h2 {
+	color: #2b2a2a;
+	font-size: 24px;
+	font-weight: 500;
+}
+
+.pricing-table h5 {
+	color: #353434;
+	font-size: 14px;
+	font-weight: 400;
+}
+
+.pricing-table .pricing-features {
+	margin-top: 1rem;
+}
+
+.pricing-table .pricing-features .feature {
+	font-size: 14px;
+	margin: .5rem 0;
+	color: #7c7c7c;
+}
+
+.pricing-table .pricing-features .feature span {
+	display: inline-block;
+	margin:0px 5px ;
+	color: #3b3b3b;
+	font-weight: 500;
+}
+
+.pricing-table 	.price-tag {
+	margin-top: 1rem;
+	text-align: center;
+	font-weight: 500;
+}
+
+.pricing-table .price-tag .symbol {
+	font-size: 24px;
+}
+
+.pricing-table .price-tag .amount {
+	letter-spacing: -2px;
+	font-size: 44px;
+}
+
+.pricing-table .price-tag .after {
+	color: #3b3b3b;
+	font-weight: 500;
+}
+
+.pricing-table .price-button {
+	display: block;
+	
+	margin-top: 1rem;
+	padding: .75rem;
+	border-radius: 2px;
+	text-align: center;
+	font-weight: 500;
+	transition: .3s;
+  font-size:1.3rem;
+}
+.price-button-purple{
+  color: rgb(3, 2, 114);
+}
+.price-button-blue{
+  color: rgb(98, 0, 122);
+}
+.price-button-green{
+  color: rgb(2, 114, 21);
+}
+
+.pricing-table .price-button:hover {
+	text-decoration: none;
+}
+
+.purple .pricing-label {
+	background: #cad2ff;
+	color: #021caa;
+}
+
+.purple .price-tag {
+	color: #011588;
+}
+
+.purple .price-button {
+	background: #94a4fc;
+}
+
+.purple .price-button:hover {
+	background: #a4b1fc;
+}
+
+.turquoise .pricing-label {
+	background: #ed87f8;
+	color: #48014e;
+}
+
+.turquoise .price-tag {
+	color:#48014e;
+}
+
+.turquoise .price-button {
+	background: #eb61fa;
+}
+
+.turquoise .price-button:hover {
+	background: #efa0f8;
+}
+
+.red .pricing-label {
+	background: #87fc87;
+	color: #026d19;
+}
+
+.red .price-tag {
+	color: #026d19;
+}
+
+.red .price-button {
+	background: #73fd73;
+}
+
+.red .price-button:hover {
+	background: #a7fca7;
+}
+</style>
+<div class="container" style="margin-top:70px;text-align: center;justify-content: center;">
+<div class="row m-3" style="justify-content:center">
+    <div class="">
+        <span class="text-secondary text-uppercase">Pricing</span>
+        <h1 class="text-capitalize font-weight-bold">Pricing <span style="color: #4853f3;">Plans <i class="fa fa-money"></i></span></h1>
+      </div>
+</div>
+<div class="row">
+   <div class="col-md-4 my-2" style="text-align: center;justify-content: center;">
+      <div class="pricing-table purple" style="text-align: center;justify-content: center;">
+         <div class="pricing-label">Free</div>
+         <h2>FREE</h2>
+         <h5>Made for explorers</h5><hr>
+         <div class="pricing-features">
+            <div class="feature"><i class="fa fa-check-circle-o"></i> 1<span> Basic User Account</span></div>
+            <div class="feature"><i class="fa fa-times"></i> View<span> Unlimited Teacher's Profile</span></div>
+            <div class="feature"><i class="fa fa-times"></i> Call<span> Professional Teacher's Anytime</span></div>
+            <div class="feature"><i class="fa fa-times"></i> Take <span> Trial Classes</span></div>
+         </div>
+         <hr>
+         <div class="price-tag">
+            <span class="symbol">Rs</span>
+            <span class="amount">0</span>
+            <span class="after">/month</span>
+         </div>
+         <a class="price-button price-button-blue" href="{% url 'dashboard:tutors' %} ">Find Tutors <i class="fa fa-arrow-right"></i></a>
+      </div>
+   </div>
+   <div class="col-md-4 my-2">
+      <div class="pricing-table turquoise">
+         <div class="pricing-label">Pro Monthly</div>
+         <h2>Pro Monthly</h2>
+         <h5>Made for parents & tutor seekers</h5><hr>
+         <div class="pricing-features">
+            <div class="feature"><i class="fa fa-check-circle-o"></i> 1<span> Pro User Account</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> View<span> Unlimited Teacher's Profile</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> Call<span> Professional Teacher's Anytime</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> Take <span> Trial Classes</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> 24*7 Priority <span>Customer Support</span></div>
+         </div><hr>
+         <div class="price-tag">
+            <span class="symbol">Rs</span>
+            <span class="amount">99</span>
+            <span class="after">/month + GST</span>
+         </div>
+         {% if user.is_authenticated %}
+         <a class="price-button price-button-purple">
+            <form action="{% url 'dashboard:pro_member' %}" method="POST">
+             {% csrf_token %}
+             <input type="text" name="amount" value="MONTHLY" style="display:none" />
+             <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_ALgOPQkNZjhmdJ" data-amount="{% widthratio 99|add:18 1 100 %}" data-currency="INR" data-buttontext="Get started!" data-name="Guru Dekho" data-description="Pay & Hire.">
+             </script>
+             <input type="hidden" custom="Hidden Element" name="hidden">
+         </form>
+         </a>
+         {% else %}
+         <a class="price-button price-button-purple" href="/signin?next=/pro_member">Get started <i class="fa fa-arrow-right"></i></a>
+         {% endif %}
+      </div>
+   </div>
+   <div class="col-md-4 my-2">
+      <div class="pricing-table red">
+         <div class="pricing-label">Pro Yearly</div>
+         <h2>Pro Yearly</h2>
+         <h5>Made for learning enthusiastic</h5><hr>
+         <div class="pricing-features">
+            <div class="feature"><i class="fa fa-check-circle-o"></i> 1<span> Pro User Account</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> View<span> Unlimited Teacher's Profile</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> Call<span> Professional Teacher's Anytime</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> Take <span> Trial Classes</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> 24*7 Priority <span>Customer Support</span></div>
+            <div class="feature"><i class="fa fa-check-circle-o"></i> Get<span> Professional Tutors Easily</span></div>
+         </div><hr>
+         <div class="price-tag">
+            <span class="symbol">Rs</span>
+            <span class="amount">990</span>
+            <span class="after">/Year + GST</span>
+         </div>
+         {% if user.is_authenticated %}
+         <a class="price-button price-button-blue">
+            <form action="{% url 'dashboard:pro_member' %}" method="POST">
+             {% csrf_token %}
+             <input type="text" name="amount" value="YEARLY" style="display:none" />
+             <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_ALgOPQkNZjhmdJ" data-amount="{% widthratio 990|add:178 1 100 %}" data-currency="INR" data-buttontext="Get started!" data-name="Guru Dekho" data-description="Pay & Hire.">
+             </script>
+             <input type="hidden" custom="Hidden Element" name="hidden">
+         </form>
+         </a>
+         {% else %}
+         <a class="price-button price-button-purple" href="/signin?next=/pro_member">Get started <i class="fa fa-arrow-right"></i></a>
+         {% endif %}
+      </div>
+   </div>
+</div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+{% load socialaccount %}
+{% providers_media_js %}
+<style>.login-wrap{max-width:550px;min-height:500px;}</style>
+<div class="body hey py-5 ">
+	<div class="login-wrap hey animate-bottom">
+		<div class="login-html" >
+			<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+			<input id="tab-2" type="radio" name="tab" class="for-pwd"><label for="tab-2" class="tab" style="color:rgb(0, 0, 0)">Other Options</label>
+			<div class="login-form">
+				<div class="sign-in-htm">
+					<form role="form" method="post" action="">
+              
+                	{% csrf_token %}
+					<div class="group pop">
+						<label for="pass" class="label">Username</label>
+						<input id="pass" type="text" name="username" class="input"  placeholder="Username" required>
+					</div>
+					<div class="group pop">
+						<label for="pass" class="label">Password</label>
+						<input id="pass" name="password" type="password" class="input" data-type="password" placeholder="Password" required>
+					</div>
+					<div class="group pop">
+						<input type="submit" class="button bigbox" value="Sign In">
+					</div>
+					</form>
+					<div class="group pop">
+						<a href="{% url 'password_reset' %}" style="text-decoration: none;"><input type="submit" class="button2 bigbox" value="Forgot Password"></a>
+					</div>
+					<div class="hr"></div>
+					<p>Don't have an account? <a href="/signup">Click Here</a></p>
+				</div>
+				<div class="for-pwd-htm">
+					<div class="group" style="text-align: center;margin-top:10px">
+						<label for="user" class="label">Log In Using Your :</label>
+						<a href="{% url 'google_login' %}"><img class="google full-circle " src="{% static 'images/google.svg' %}" /></a>
+						<a href="{% url 'facebook_login' %}"><img class="google full-circle" src="{% static 'images/facebook.svg' %}" /></a>
+					</div>
+					<div class="hr"></div>
+					<p>Already have an account? <a href="/signin" class="pop">Click Here</a></p>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

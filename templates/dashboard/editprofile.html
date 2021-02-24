@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<style>.login-wrap{max-width:650px;min-height:1080px}</style>
+<div class="body hey py-5 ">
+<div class="login-wrap hey animate-bottom">
+<div class="login-html" >
+<div class="" style="text-align: center;">
+<h2 class="mssg">Welcome! {{ tutor.profile.user.username }}</h2>
+<h4>Add Or Edit Your Details</h4>
+</div>
+{% if message %}
+<div class="alert alert-primary alert-dismissible fade show" role="alert">
+<h5 class="alert-heading">{{ message }}</h5>
+<button class="close" type="button" data-dismiss="alert" aria-label="Close">
+<span aria-hidden="true">×</span></button>
+</div>
+{% endif %}
+<hr>
+{% if tutor %}
+<form method="POST" action={% url 'dashboard:editprofile' %}>
+{% csrf_token %}
+<div class="login-form" >
+<div class="px-5">
+<div class="group pop">
+<label for="user" class="label">Education :</label>
+<textarea id="user" class="input" name="education"
+placeholder="{{tutor.education}}" style="height:200px"></textarea>
+</div>
+<div class="group pop">
+<label for="user" class="label">Work Experience :</label>
+<textarea id="user" class="input" name="experience"
+placeholder="{{tutor.experience}}" style="height:200px"></textarea>
+</div>
+<div class="group pop">
+<label for="user" class="label">About :</label>
+<textarea id="user" class="input" name="about"
+placeholder="{{tutor.about}}" style="min-height:200px"></textarea>
+</div>
+<hr>
+<button type="submit" class="btn btn-primary btn-lg btn-block m-2 pop">Save Details</button>
+</div>
+</div>
+</form>
+{% else %}
+<form method="POST" action={% url 'dashboard:editprofile' %}>
+{% csrf_token %}
+<div class="login-form" >
+<div class="px-5">
+<div class="group pop">
+<label for="user" class="label">Education :</label>
+<textarea id="user" class="input" name="education"
+placeholder="BSc & Msc in Mathematics From Abc College" style="height:200px"></textarea>
+</div>
+<div class="group pop">
+<label for="user" class="label">Work Experience :</label>
+<textarea id="user" class="input" name="experience"
+placeholder="5+ Year Experience in Aakash Institute" style="height:200px"></textarea>
+</div>
+<div class="group pop">
+<label for="user" class="label">About :</label>
+<textarea id="user" class="input" name="about"
+placeholder="I am guru dekho and i am fluent in english and i teach various classes or subjects. Ranging from class 5-12 and major subjects are English, Maths, Biology,etc. I also Give tutions for JEE MAINS,etc..." style="min-height:200px"></textarea>
+</div>
+<hr>
+<button type="submit" class="btn btn-primary btn-lg btn-block m-2 pop">Save Details</button>
+</div>
+</div>
+</form>
+{% endif %}
+</div>
+</div>
+</div>
+{% endblock %}

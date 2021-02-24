@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<style>.login-wrap{width:auto;margin:auto;margin-top:50px;max-width:900px;height:auto;position:relative;background-color:rgb(255,255,255,.45);box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);border-radius: 20px;}h1{color:rgb(15, 0, 97);font-weight: 600;}h4{font-size:1.8rem;color:rgb(15, 0, 97);font-weight: 600;}</style>
+<div class="body hey py-5 animate-bottom" style="margin:0 auto;">
+    <div class="row px-4" style="margin:0 auto">
+        <div class="col-lg-4 animate-left" style="text-align: center;justify-content: center;margin:0 auto">
+            <h1 class="tutor p-4" style="margin:30px auto">Profile Details</h1>
+            <div style="margin:0 auto">
+                <img src="{{user.profile.image.url}}" class="pop" width="85%" alt="" srcset="" style="box-shadow:0 4px 6px 4px rgb(119, 167, 255);border-radius: 20px;height:auto">
+            </div>
+        </div>
+        <div class="col-lg-8 py-4 animate-right" style="margin:0 auto">
+            <div class="login-wrap hey py-4" style="margin:30px auto">
+                <div class=" px-4"  style="margin:0 auto">
+                    <h4 class="tutor mb-6">
+                        <i class="fa fa-street-view"></i> {{ user.username }}'s Profile
+                    </h4>
+                    <div>
+                        <p>Name :<span style="color: black;"> {{user.first_name}} {{user.last_name}}</span></p><hr><br>
+                        <p>D.O.B :<span style="font-size:18px;  color: black;"> {{user.profile.birth_day}} </span></p><hr><br>
+                        <p>Email :<span style="color: black;"> {{ user.email }}</span></p><hr><br>
+                        <p>Phone Number :<span style="color: black;"> {{ user.profile.phone_number }}</span></p><hr><br>
+                        <p>City :<span style="color: black;"> {{ user.profile.city }}</span></p><hr><br>
+                        <p>Subscription type :<span style="color: black;"> {{ user.profile.subscription_type }}</span></p><hr><br>
+                    </div>
+                    
+                    {% if tutor %}
+                    <div>
+                        <a href="/editprofile"><button class="btn btn-lg btn-primary pop">Edit Your Tutors Page</button></a>
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

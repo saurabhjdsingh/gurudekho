@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<style>.login-wrap{max-width:550px;min-height:360px}</style>
+<div class="body hey py-5 ">
+<div class="login-wrap hey animate-bottom">
+<div class="login-html" >
+<div class="" style="text-align: center;">
+<h2>Confirm Your Account</h2>
+</div>
+<hr>
+<div class="login-form pop" >
+<div class="px-5">
+<div class="py-5">
+<h5 class="mssg">Thank you for your email confirmation. Now you can <a href="{% url 'accounts:signin' %}">Login</a> to your account.</h5>
+</div>
+</div>
+<hr>
+<div class="py-1" style="text-align: center;justify-content:center">
+<p>Already have an account? <a href="{% url 'accounts:signin' %}">Login</a>.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}

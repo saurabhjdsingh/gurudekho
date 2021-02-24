@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<style>.login-wrap{max-width:550px;min-height:400px}</style>
+<div class="body hey py-5 ">
+<div class="login-wrap hey animate-bottom">
+<div class="login-html" >
+<div class="" style="text-align: center;">
+<h2>Confirm Your Account</h2>
+</div>
+<hr>
+<div class="login-form pop" >
+<div class="px-5">
+<div class="py-5">
+<h5 class="mssg">The email confirmation link was invalid, possibly because it has already been used. Please request a new password by clicking <a href="{% url 'accounts:password_reset' %}">here</a> or <a href="{% url 'accounts:signup' %}">Create an account!</a> with new email id.</h5>
+</div>
+</div>
+<hr>
+<div class="py-1" style="text-align: center;justify-content:center">
+<p>New User? <a href="{% url 'accounts:signup' %}">Create an account!</a></p>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock %}
