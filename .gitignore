@@ -1,0 +1,33 @@
+# byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+accounts/migrations
+dashboard/migrations
+gurudekho/migrations
+
+# keys
+settings.ini
+
+# tests and coverage
+*.pytest_cache
+.coverage
+
+# database & logs
+*.db
+*.sqlite3
+*.log
+
+# venv
+env
+venv
+media
+
+# other
+templates/.DS_Store
+.DS_Store
+
+# javascript
+package-lock.json
+
+staticfiles/*
+!staticfiles/.gitkeep 
