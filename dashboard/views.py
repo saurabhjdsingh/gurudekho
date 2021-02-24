@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 import razorpay
-client = razorpay.Client(auth=("rzp_test_ALgOPQkNZjhmdJ", "gWJofbxymxYZVZZDjKQyOTNJ"))
+client = razorpay.Client(auth=("rzp_test_v1g3egYXb3T9mv", "3m3WuATVPQwMrIgT0wJtaH1a"))
 UserModel = get_user_model()
 
 
