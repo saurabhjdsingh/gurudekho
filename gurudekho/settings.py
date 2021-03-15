@@ -94,8 +94,12 @@ SOCIALACCOUNT_PROVIDERS = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_gurudekho',
+        'USER': 'saurabhjdsingh',
+        'PASSWORD': 'Saurabh1234',
+        'HOST': 'ls-57c140c991d926b493bbbe4b0143f075b301a452.cc4b9bv0lmba.ap-south-1.rds.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
