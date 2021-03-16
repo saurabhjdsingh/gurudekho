@@ -141,8 +141,8 @@ LOGIN_REDIRECT_URL = 'dashboard:tutors'
 LOGIN_URL = reverse_lazy('accounts:signin')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = "contact@thinkgroupy.com"
-EMAIL_HOST_PASSWORD = "nzoblljpqjmtslnv"
+EMAIL_HOST_USER = "contact@gurudekho.com"
+EMAIL_HOST_PASSWORD = "zdmujzzhqysjvegg"
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
