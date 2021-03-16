@@ -7,7 +7,7 @@ from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 import razorpay
-client = razorpay.Client(auth=("rzp_test_v1g3egYXb3T9mv", "3m3WuATVPQwMrIgT0wJtaH1a"))
+client = razorpay.Client(auth=("rzp_test_ALgOPQkNZjhmdJ", "gWJofbxymxYZVZZDjKQyOTNJ"))
 UserModel = get_user_model()
 
 
@@ -67,12 +67,15 @@ def editprofile(request):
         
 @login_required
 def tutors(request):
-    if request.method == "POST":
-        profileList = Profile.objects.filter(profession="Tutor", city=request.POST["city"]).order_by("-id");
-        return render(request, 'dashboard/tutors.html', {'profile': profileList, 'city':request.POST["city"]})
+    if Profile.objects.filter(user__id=request.user.id).exists():
+        if request.method == "POST":
+            profileList = Profile.objects.filter(profession="Tutor", city=request.POST["city"]).order_by("-id");
+            return render(request, 'dashboard/tutors.html', {'profile': profileList, 'city':request.POST["city"]})
+        else:
+            pass
+        return render(request, 'dashboard/tutors.html')
     else:
-        pass
-    return render(request, 'dashboard/tutors.html')
+        return redirect('dashboard:editprofile')
     
 
 @login_required
@@ -134,9 +137,12 @@ def pro_member(request):
 
 @login_required
 def profile(request):
-    user_profile = Profile.objects.get(user=request.user)
-    if user_profile.profession == "Tutor":
-        tutor = True
+    if Profile.objects.filter(user__id=request.user.id).exists():
+        user_profile = Profile.objects.get(user=request.user)
+        if user_profile.profession == "Tutor":
+            tutor = True
+        else:
+            tutor = False
+        return render(request, 'dashboard/profile.html', {'tutor': tutor})
     else:
-        tutor = False
-    return render(request, 'dashboard/profile.html', {'tutor': tutor})
+        return redirect('dashboard:editprofile')
