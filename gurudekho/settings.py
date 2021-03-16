@@ -98,7 +98,7 @@ DATABASES = {
         'NAME': 'db_gurudekho',
         'USER': 'saurabhjdsingh',
         'PASSWORD': 'Saurabh1234',
-        'HOST': 'ls-57c140c991d926b493bbbe4b0143f075b301a452.cc4b9bv0lmba.ap-south-1.rds.amazonaws.com',
+        'HOST': 'ls-1f6b18234db0ff873c732e5bd92e524b9346bf4a.cc4b9bv0lmba.ap-south-1.rds.amazonaws.com',
         'PORT': '5432',
     }
 }
