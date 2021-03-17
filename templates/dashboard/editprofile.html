@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
-<style>.login-wrap{max-width:650px;min-height:1080px}</style>
+<style>.login-wrap{max-width:750px;min-height:1080px}</style>
 <div class="body hey py-5 ">
 <div class="login-wrap hey animate-bottom">
 <div class="login-html" >
@@ -22,23 +22,23 @@
 {% csrf_token %}
 <div class="login-form" >
 <div class="px-5">
-<div class="group pop">
+<div class="group">
 <label for="user" class="label">Education :</label>
 <textarea id="user" class="input" name="education"
 placeholder="{{tutor.education}}" style="height:200px"></textarea>
 </div>
-<div class="group pop">
+<div class="group">
 <label for="user" class="label">Work Experience :</label>
 <textarea id="user" class="input" name="experience"
 placeholder="{{tutor.experience}}" style="height:200px"></textarea>
 </div>
-<div class="group pop">
+<div class="group">
 <label for="user" class="label">About yourself:</label>
 <textarea id="user" class="input" name="about"
 placeholder="{{tutor.about}}" style="min-height:200px"></textarea>
 </div>
 <hr>
-<button type="submit" class="btn btn-primary btn-lg btn-block m-2 pop">Save Details</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block m-2">Save Details</button>
 </div>
 </div>
 </form>
@@ -47,23 +47,23 @@ placeholder="{{tutor.about}}" style="min-height:200px"></textarea>
 {% csrf_token %}
 <div class="login-form" >
 <div class="px-5">
-<div class="group pop">
+<div class="group">
 <label for="user" class="label">Education :</label>
 <textarea id="user" class="input" name="education"
 placeholder="BSc & Msc in Mathematics From Abc College" style="height:200px"></textarea>
 </div>
-<div class="group pop">
+<div class="group">
 <label for="user" class="label">Work Experience :</label>
 <textarea id="user" class="input" name="experience"
 placeholder="5+ Year Experience in Aakash Institute" style="height:200px"></textarea>
 </div>
-<div class="group pop">
-<label for="user" class="label">About :</label>
+<div class="group">
+<label for="user" class="label">About yourself:</label>
 <textarea id="user" class="input" name="about"
 placeholder="I am guru dekho and i am fluent in english and i teach various classes or subjects. Ranging from class 5-12 and major subjects are English, Maths, Biology,etc. I also Give tutions for JEE MAINS,etc..." style="min-height:200px"></textarea>
 </div>
 <hr>
-<button type="submit" class="btn btn-primary btn-lg btn-block m-2 pop">Save Details</button>
+<button type="submit" class="btn btn-primary btn-lg btn-block m-2">Save Details</button>
 </div>
 </div>
 </form>
