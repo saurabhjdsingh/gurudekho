@@ -23,7 +23,8 @@ def aftersignup(request):
             profession = request.POST["profession"]
             city = request.POST["city"]
             date = request.POST["birth_day"]
-            p = Profile(user=request.user, phone_number=number, profession=profession, city=city, birth_day=date)
+            area = request.POST["area"]
+            p = Profile(user=request.user, phone_number=number, profession=profession, city=city, area=area, birth_day=date)
             p.save()
             p_form = ProfileUpdateForm(request.POST, request.FILES, instance=request.user.profile)
             if p_form.is_valid():
