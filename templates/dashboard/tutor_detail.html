@@ -12,7 +12,7 @@
             </div>
         </div>
         <div class="col-lg-8 py-4 animate-right" style="margin:0 auto">
-            <div class="login-wrap hey py-4 pop" style="margin:30px auto">
+            <div class="login-wrap hey py-4 " style="margin:30px auto">
                 <div class=" px-4"  style="margin:0 auto">
                     <h2 class="tutor">
                         Tutor {{ tutor.profile.user.username }}'s <i class="fa fa-street-view"></i>
@@ -33,6 +33,9 @@
                 <div style="width:100%">
                                                 <h4>About :<p style="color: black;">{{ tutor.about }}</p> </h4><hr>
                 </div>
+                <div style="width:100%">
+                                                <h4>Address :<p style="color: black;">{{ tutor.profile.area }}</p> </h4><hr>
+                </div>
 
 
 
@@ -49,7 +52,7 @@
                                             <h5 class="modal-title" id="exampleModalLabel">Contact Details</h5>
                                             <button class="close" type="button" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
                                         </div>
-                                        <div class="modal-body pop">
+                                        <div class="modal-body">
                                             {% if user.profile.is_pro is True %}
                                             <p>Email Address: <a href="mailto: {{tutor.profile.user.email}}">{{tutor.profile.user.email}}</a></p>
                                             <p>Phone Number: <a href="tel: {{tutor.profile.phone_number}}">{{tutor.profile.phone_number}}</a></p>
