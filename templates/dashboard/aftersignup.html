@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
-<style>.login-wrap{max-width:600px;min-height:700px}</style>
+<style>.login-wrap{min-height:850px}</style>
 <div class="body hey py-5 ">
 <div class="login-wrap hey animate-bottom">
 <div class="login-html" >
@@ -20,26 +20,26 @@
 {% csrf_token %}
 <div class="login-form" >
 <div class="px-5">
-<div class="group my-2 pop">
+<div class="group my-2">
 <label for="pass" class="label">You are a</label>
 <input type="radio" id="tutor" name="profession" value="Tutor">
 <label for="male">Tutor</label><br>
 <input type="radio" id="Student" name="profession" value="Student">
 <label for="Student">Student / Parent</label><br>
-<div class="group my-2 pop">
+<div class="group my-2">
 <label for="user" class="label">Contact No :</label>
 <input id="user" name="phone_number" type="tel" class="input" >
 </div>
-<div class="group my-1 pop">
+<div class="group my-1">
 <label for="user" class="label">Enter your D.O.B</label>
 <input id="user" class="input" type="date" name="birth_day">
 </div>
-<div class="group my-1 pop">
-<label for="user" class="label">Upload profile pic</label>
+<div class="group my-1 ">
+<label for="user" class="label">Upload profile pic (optional)</label>
 <input class="btn" type="file" name="image"/>
 </div>
-<div class="group my-1 pop">
-<label for="user" class="label">Select your location</label>
+<div class="group my-1">
+<label for="user" class="label">Select your city</label>
 <div class="row" style='padding-top:10px'>
 <script type= "text/javascript" src = "{% static 'js/countries.js' %}"></script>
 <div class="col-lg-6 p-1 pop" style="justify-content:center;text-align:center">
@@ -51,8 +51,12 @@
 <script language="javascript">print_state("sts");</script>
 </div>
 </div>
+<div class="group my-2">
+<label class="label">Complete address :</label>
+<input name="area" type="text" class="input" >
+</div>
 <hr>
-<button type="submit" href="{ url 'dashboard:aftersignup' }" class="btn btn-primary btn-lg btn-block m-2 pop">Save Details</button>
+<button type="submit" href="{ url 'dashboard:aftersignup' }" class="btn btn-primary btn-lg btn-block m-2 ">Save Details</button>
 </div>
 </div>
 </form>
