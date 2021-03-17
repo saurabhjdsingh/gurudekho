@@ -1,14 +1,14 @@
 import os
 from django.urls import reverse_lazy
-
+from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 # STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
-SECRET_KEY = 'ys^)6dv-rh+j5si2*7y-3v!1fr3bi_!x*4(c%+jisdj8=m@87e'
+SECRET_KEY = config("SECRET_KEY")
 
-DEBUG = True
+DEBUG = DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -95,10 +95,10 @@ SOCIALACCOUNT_PROVIDERS = {
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'db_gurudekho',
-        'USER': 'saurabhjdsingh',
-        'PASSWORD': 'Saurabh1234',
-        'HOST': 'ls-1f6b18234db0ff873c732e5bd92e524b9346bf4a.cc4b9bv0lmba.ap-south-1.rds.amazonaws.com',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASS'),
+        'HOST': config('DB_HOST'),
         'PORT': '5432',
     }
 }
@@ -143,8 +143,8 @@ LOGIN_REDIRECT_URL = 'dashboard:tutors'
 LOGIN_URL = reverse_lazy('accounts:signin')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = "contact@gurudekho.com"
-EMAIL_HOST_PASSWORD = "zdmujzzhqysjvegg"
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
