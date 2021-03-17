@@ -4,7 +4,6 @@ from decouple import config
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
-# STATIC_ROOT = os.path.join(BASE_DIR, "static")
 
 SECRET_KEY = config("SECRET_KEY")
 
@@ -133,7 +132,6 @@ STATIC_URL = '/static/'
 import os
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
-#    os.path.join(BASE_DIR, "static")
 ]
 
 MEDIA_URL = '/media/'
