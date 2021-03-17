@@ -23,11 +23,12 @@
                         <p>Phone Number :<span style="color: black;"> {{ user.profile.phone_number }}</span></p><hr><br>
                         <p>City :<span style="color: black;"> {{ user.profile.city }}</span></p><hr><br>
                         <p>Subscription type :<span style="color: black;"> {{ user.profile.subscription_type }}</span></p><hr><br>
+                        <p>Address :<span style="color: black;"> {{ user.profile.area }}</span></p><hr><br>
                     </div>
                     
                     {% if tutor %}
                     <div>
-                        <a href="/editprofile"><button class="btn btn-lg btn-primary pop">Edit Your Tutors Page</button></a>
+                        <a href="/editprofile"><button class="btn btn-lg btn-primary">Edit Your Tutors Page</button></a>
                     </div>
                     {% endif %}
                 </div>
