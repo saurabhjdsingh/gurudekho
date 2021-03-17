@@ -9,9 +9,9 @@ profession_CHOICES = [
 ]
 
 SUBSCRIPTION = (
-    ('F', 'FREE'),
-    ('M','MONTHLY'),
-    ('Y', 'YEARLY')
+    ('FREE', 'FREE'),
+    ('MONTHLY','MONTHLY'),
+    ('YEARLY', 'YEARLY')
     )
 
 class Profile(models.Model):
@@ -20,6 +20,7 @@ class Profile(models.Model):
     phone_number = models.CharField(validators=[phone_regex], max_length=17, blank=True, unique=True,)
     profession = models.CharField(max_length=8, choices=profession_CHOICES, null=True, blank=True)
     city = models.CharField(max_length=200, null=True, blank=True)
+    area = models.TextField(null=True, blank=True)
     birth_day = models.DateField(blank=True, null=True)
     image = models.ImageField(upload_to="users/profile/%y/%m/%d", default="users/person.png", null=True, blank=True)
     is_pro = models.BooleanField(default=False)
