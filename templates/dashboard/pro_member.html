@@ -157,7 +157,7 @@
 </div>
 <div class="row">
    <div class="col-md-4 my-2 pop" style="text-align: center;justify-content: center;">
-      <div class="pricing-table purple" style="text-align: center;justify-content: center;">
+      <div class="pricing-table purple animate-left" style="text-align: center;justify-content: center;">
          <div class="pricing-label">Free</div>
          <h2>FREE</h2>
          <h5>Made for explorers</h5><hr>
@@ -177,7 +177,7 @@
       </div>
    </div>
    <div class="col-md-4 my-2 pop">
-      <div class="pricing-table turquoise">
+      <div class="pricing-table turquoise animate-bottom">
          <div class="pricing-label">Pro Monthly</div>
          <h2>Pro Monthly</h2>
          <h5>Made for parents & tutor seekers</h5><hr>
@@ -198,7 +198,7 @@
             <form action="{% url 'dashboard:pro_member' %}" method="POST">
              {% csrf_token %}
              <input type="text" name="amount" value="MONTHLY" style="display:none" />
-             <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_v1g3egYXb3T9mv" data-amount="{% widthratio 99|add:18 1 100 %}" data-currency="INR" data-buttontext="Get started!" data-name="Guru Dekho" data-description="Pay & Hire.">
+             <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_ALgOPQkNZjhmdJ" data-amount="{% widthratio 99|add:18 1 100 %}" data-currency="INR" data-buttontext="Get started!" data-name="Guru Dekho" data-description="Pay & Hire.">
              </script>
              <input type="hidden" custom="Hidden Element" name="hidden">
          </form>
@@ -209,7 +209,7 @@
       </div>
    </div>
    <div class="col-md-4 my-2 pop">
-      <div class="pricing-table red">
+      <div class="pricing-table red animate-right">
          <div class="pricing-label">Pro Yearly</div>
          <h2>Pro Yearly</h2>
          <h5>Made for learning enthusiastic</h5><hr>
@@ -231,7 +231,7 @@
             <form action="{% url 'dashboard:pro_member' %}" method="POST">
              {% csrf_token %}
              <input type="text" name="amount" value="YEARLY" style="display:none" />
-             <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_v1g3egYXb3T9mv" data-amount="{% widthratio 990|add:178 1 100 %}" data-currency="INR" data-buttontext="Get started!" data-name="Guru Dekho" data-description="Pay & Hire.">
+             <script src="https://checkout.razorpay.com/v1/checkout.js" data-key="rzp_test_ALgOPQkNZjhmdJ" data-amount="{% widthratio 990|add:178 1 100 %}" data-currency="INR" data-buttontext="Get started!" data-name="Guru Dekho" data-description="Pay & Hire.">
              </script>
              <input type="hidden" custom="Hidden Element" name="hidden">
          </form>
