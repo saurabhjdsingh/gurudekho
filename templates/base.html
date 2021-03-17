@@ -30,13 +30,27 @@
         <li class="nav-item px-lg-2 active"> <a class="nav-link pop" href="{% url 'dashboard:tutors' %}"> <span class="d-inline-block d-lg-none icon-width"><i class="fa fa-home"></i></span>Get Tutor</a></li>
         <li class="nav-item px-lg-2"> <a class="nav-link pop" href="{% url 'dashboard:pro_member' %}"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user"></i></i></span>Pricing</a></li>
         <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/profile"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-suitcase"></i></span>Profile</a></li>
-        <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/#about"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>About</a></li>
+        <div class="dropdown">
+            <li class="nav-item px-lg-2" data-toggle="dropdown"> <a class="nav-link pop" ><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>About</a></li>
+            <ul class="dropdown-menu">
+                <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/#about"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>About</a></li>
+                <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/terms"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>Terms</a></li>
+                <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/privacy"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>Privacy</a></li>
+            </ul>
+        </div> 
         <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/#contact"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-envelope"></i></span>Contact</a></li>
         {% else %}
         <li class="nav-item px-lg-2 active"> <a class="nav-link pop" href="/#search"> <span class="d-inline-block d-lg-none icon-width"><i class="fa fa-home"></i></span>Get Tutor</a></li>
         <li class="nav-item px-lg-2"> <a class="nav-link pop" href="{% url 'dashboard:pro_member' %}"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user"></i></i></span>Pricing</a></li>
         <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/#services"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-suitcase"></i></span>services</a></li>
-        <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/#about"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>About</a></li>
+        <div class="dropdown">
+            <li class="nav-item px-lg-2" data-toggle="dropdown"> <a class="nav-link pop" ><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>About</a></li>
+            <ul class="dropdown-menu">
+                <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/#about"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>About</a></li>
+                <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/terms"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>Terms</a></li>
+                <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/privacy"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-user-circle"></i></i></span>Privacy</a></li>
+            </ul>
+        </div>
         <li class="nav-item px-lg-2"> <a class="nav-link pop" href="/#contact"><span class="d-inline-block d-lg-none icon-width"><i class="fa fa-envelope"></i></span>Contact</a></li>
         {% endif %}
         </ul>
