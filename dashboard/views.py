@@ -87,7 +87,7 @@ def detail(request,username):
         if timezone.now() >= person.pro_expiry_date:
             person.is_pro = False
             person.pro_expiry_date = None
-            person.subscription_type = 'F'
+            person.subscription_type = 'FREE'
             person.save()
     if Profile.objects.filter(user__username=username).exists():
         user_profile = Profile.objects.get(user__username=username)
@@ -118,7 +118,7 @@ def pro_member(request):
         pay_contact = pay.get('contact')
         profile = Profile.objects.filter(user=request.user).first()
         if payment_amount == 11700:
-            profile.subscription_type = 'M'
+            profile.subscription_type = 'MONTHLY'
             profile.is_pro = True
             expiry = timezone.now() + timedelta(30)
             profile.pro_expiry_date = expiry
@@ -126,7 +126,7 @@ def pro_member(request):
             pay = Payment(profile=profile, payment_amount=payment_amount, payment_date=timezone.now(), payment_id=payment_id, email=pay_email, phone_number=pay_contact, captured=pay.get('captured'))
             pay.save()
         elif payment_amount == 116800:
-            profile.subscription_type = 'Y'
+            profile.subscription_type = 'YEARLY'
             profile.is_pro = True
             expiry = timezone.now() + timedelta(365)
             profile.pro_expiry_date = expiry
