@@ -1,73 +1,134 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
+<style type="text/css">
+.serviceBox{
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    padding-top: 10px;
+}
+#section_1{
+  margin-top: 55px;
+  padding: 5%;
+}
+.serviceBox .service-icon{
+    color: #fff;
+    background: #fff;
+    font-size: 45px;
+    line-height: 100px;
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 30px;
+    border-radius: 50%;
+    box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 1;
+}
+
+.serviceBox .service-icon:before,
+.serviceBox .service-icon:after{
+    content: "";
+    background: linear-gradient(to right, #F09119 50%, transparent 50%);
+    border-radius: 50%;
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    right: -10px;
+    bottom: -10px;
+    z-index: -1;
+  transition: all ease 0.8s;
+}
+.serviceBox:hover .service-icon:before, .serviceBox:hover .service-icon:after {
+    transform: rotateZ(180deg);
+}
+.serviceBox:hover .service-icon {
+    box-shadow: -5px 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+.serviceBox .service-icon:after{
+    background: #F09119;
+    box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+}
+.serviceBox {
+    border: 1px solid #e5e4e4;
+    padding: 20px;
+    border-radius: 20px;
+    background: #f9f9f9;
+    position: relative;
+    z-index: 1;
+    box-shadow: 0 3px 5px 3px rgba(0,0,0,0.1)
+}
+
+
+.serviceBox .title{
+    color: #F1921A;
+    font-size: 24px;
+    font-weight: 600;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+
+}
+
+#mobile{display:none}
+@media only screen and (max-width:992px){
+
+#mobile{
+  display:block;
+}
+#pc{
+    display:none;
+}
+}
+.serviceBox.blue .service-icon:before{ background: linear-gradient(to right, rgb(54, 100, 255) 50%, transparent 50%); }
+.serviceBox.blue .service-icon:after{ background: rgb(54, 100, 255); }
+.serviceBox.blue .title{ color: rgb(54, 100, 255); }
+</style>
+<div id="section_1">
+    <div class="container animate-bottom" id="search">
+    <div class="" style="text-align: center;justify-content: center">
+        <h1>Search Tutors across  your States, Cities. <i class="fa fa-map-marker"></i></h1>
+    </div>
+<div class="row" style='padding-top:20px'>
+    <script type= "text/javascript" src ="{% static 'js/countries.js' %}"></script>
+    <div class="col-lg-3 p-1"></div>
+    <div class="col-lg-3 p-1 pop" style="justify-content:center;text-align:center">
+        <select class="select"  onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
+    </div>
+    <form method="POST" action="{% url 'dashboard:tutors' %}">
+    {% csrf_token %}
+        <div class="col-lg-3 p-1 pop" style="justify-content:center;text-align:center">
+            <button type="submit" style="background: transparent; border: 0;">
+                <select class="select" id ="state" class="form-control" name="city" required><option>Select City</option></select>
+            </button>
+        </div>
+    </form>
+    <div class="col-lg-3 p-1"></div>
+    <script language="javascript">print_state("sts");</script>
+</div>
+</div>
+</div>
 <div class="container-fluid tutor-banner-area">
     <div class="container">
         <div class="row">
-            <div class="col-md-6 animate-left" style="padding-top:85px"> 
+            <div class="col-md-6 animate-left"> 
                 <h1> We promise to bring
                     the best <span>TUTOR <i class="fa fa-street-view"></i></span> for
                     your kids in your location. </h1>
-                <p> we strive to make the process as simple as possible, listing all personal and private tutors closest to you. </p>
+                <p> We strive to make the process as simple as possible, listing all personal and private tutors closest to you. </p>
                 {% if user.is_authenticated %}
-                <a class="pop" href="{% url 'dashboard:tutors' %}">search tutors <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                <a class="pop" href="{% url 'dashboard:tutors' %}">search tutors <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 {% else %}
-                <a class="pop" href="{% url 'dashboard:tutors' %}">Get Started <i class="fa fa-angle-right" aria-hidden="true"></i></a></div>
+                <a class="pop" href="{% url 'dashboard:tutors' %}">Get Started <i class="fa fa-angle-right" aria-hidden="true"></i></a>
                 {% endif %}
-            <div class="col-md-6" style="padding-top:85px">
+            </div>
+            <div class="col-md-6">
                 <div class="card"><img class="card-img-top img-fluid animate-right pop" src="{% static 'images/banner-img.png' %}" alt=""></div>
             </div>
         </div>
-    </div>
-</div>
-<div class="container animate-bottom" id="search">
-    <div class="
-    " style="text-align: center;justify-content: center">
-    <h1>Search Tutors across  your States, Cities. <i class="fa fa-map-marker"></i></h1></div>
-    
-          <div class="row" style='padding-top:20px'>
-        <script type= "text/javascript" src ="{% static 'js/countries.js' %}"></script>
-        <div class="col-lg-3 p-1">
-          
-        </div>
-<div class="col-lg-3 p-1 pop" style="justify-content:center;text-align:center">
-    <select class="select"  onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
-</div>
-<form method="POST" action="{% url 'dashboard:tutors' %}">
-  {% csrf_token %}
-  <div class="col-lg-3 p-1 pop" style="justify-content:center;text-align:center">
-    <button type="submit" style="background: transparent; border: 0;"><select class="select" id ="state" class="form-control" name="city" required><option>Select City</option></select></button>
-</div>
-</form>
-    <div class="col-lg-3 p-1">
-    </div>
-    <script language="javascript">print_state("sts");</script>
-</div>
-<div class="container animate-right" style="margin-top:5%;" id="pricing">
-    <div class="text-center ">
-      <span class="text-secondary text-uppercase">Pricing</span>
-      <h1 class="text-capitalize font-weight-bold">Pricing <span style="color: #4853f3;">Plans <i class="fa fa-money"></i></span></h1>
-    </div>
-
-    <div class="my-5 py-4 px-5  d-md-flex align-items-center justify-content-between price pop" >
-      <div class="text-center">
-        <span style="font-weight: 600;">PRO MEMBER</span>
-        <h1 class="my-2 font-weight-bold">from Rs 99</h1>
-        <small class="text-uppercase text-secondary">/Month + GST</small>
-      </div>
-      <div class="text-center text-uppercase text-secondary">
-        <small class="d-block" >Pro User Account</small>
-        <small class="d-block my-3" >Monthly Plan</small>
-        <small class="d-block" >24/7 Support</small>
-      </div>
-      <div class="text-center text-uppercase text-secondary">
-        <small class="d-block" >Unlimited Tutors</small>
-        <small class="d-block my-3" >Contact Details</small>
-        <small class="d-block" >Verified Tutors</small>
-      </div>
-      <div class="text-center">
-        <a href="{% url 'dashboard:pro_member' %}" class="btn text-white px-5 py-3 pop" style="background-color: #525efc; border-radius: 30px;">Get Started <i class="fa fa-money"></i></a>
-      </div>
     </div>
 </div>
 <div class="container-fluid tutor-feature">
@@ -76,27 +137,20 @@
             <div class="col-md-7 animate-left">
                 <div class="cover">
                     <div class="card">
-                        <svg
-                                class="back-bg"
-                                width="100%" viewBox="0 0 900 700" style="position:absolute; z-index: -1">
+                        <svg class="back-bg" width="100%" viewBox="0 0 900 700" style="position:absolute; z-index: -1">
                             <defs>
                                 <linearGradient id="PSgrad_01" x1="64.279%" x2="0%" y1="76.604%" y2="0%">
                                     <stop offset="0%" stop-color="rgb(150, 195, 253)" stop-opacity="1"/>
                                     <stop offset="100%" stop-color="rgb(74, 150, 250)" stop-opacity="1"/>
                                 </linearGradient>
                             </defs>
-                            <path fill-rule="evenodd" opacity="0.102" fill="url(#PSgrad_01)"
-                                  d="M616.656,2.494 L89.351,98.948 C19.867,111.658 -16.508,176.639 7.408,240.130 L122.755,546.348 C141.761,596.806 203.597,623.407 259.843,609.597 L697.535,502.126 C748.221,489.680 783.967,441.432 777.751,392.742 L739.837,95.775 C732.096,35.145 677.715,-8.675 616.656,2.494 Z"/>
+                            <path fill-rule="evenodd" opacity="0.102" fill="url(#PSgrad_01)" d="M616.656,2.494 L89.351,98.948 C19.867,111.658 -16.508,176.639 7.408,240.130 L122.755,546.348 C141.761,596.806 203.597,623.407 259.843,609.597 L697.535,502.126 C748.221,489.680 783.967,441.432 777.751,392.742 L739.837,95.775 C732.096,35.145 677.715,-8.675 616.656,2.494 Z"/>
                         </svg>
-
-
                         <svg width="100%" viewBox="0 0 700 500">
                             <clipPath id="clip-path">
                                 <path d="M89.479,0.180 L512.635,25.932 C568.395,29.326 603.115,76.927 590.357,129.078 L528.827,380.603 C518.688,422.048 472.661,448.814 427.190,443.300 L73.350,400.391 C32.374,395.422 -0.267,360.907 -0.002,322.064 L1.609,85.154 C1.938,36.786 40.481,-2.801 89.479,0.180 Z"></path>
                             </clipPath>
-
-                            <image clip-path="url(#clip-path)" xlink:href="{% static 'images/learn-img.jpg' %}" width="100%"
-                                   height="465" class="svg__image pop"></image>
+                            <image clip-path="url(#clip-path)" xlink:href="{% static 'images/learn-img.jpg' %}" width="100%" height="465" class="svg__image pop"></image>
                         </svg>
                     </div>
                 </div>
@@ -111,7 +165,7 @@
                         dictum id neque.
                     </small>
                 </p>
-
+            </div>
         </div>
     </div>
 </div>
@@ -121,10 +175,7 @@
             <div class="col-lg-4 animate-left">
                 <h2> Explore The Services <i class="fa fa-suitcase"></i><br/>
                     We Offer For You </h2>
-                <p> Nunc sodales lobortis arcu, sit amet venenatis erat placerat a. Donec lacinia magna nulla, cursus
-                    impediet augue egestas id. Suspendisse dolor lectus, pellentesque quis tincidunt ac, dictum id
-                    neque. </p>
-                <a href="#" class="pop">All Services <i class="fa fa-suitcase" aria-hidden="true"></i></a></div>
+                <a href="#!" class="pop">All Services <i class="fa fa-suitcase" aria-hidden="true"></i></a></div>
             <div class="col-lg-8 animate-right">
                 <svg id="bg-services"
                      width="100%"
@@ -176,39 +227,27 @@
         </div>
     </div>
 </div>
-<div class="container-fluid tutor-numbers-block">
+<div class="container-fluid tutor-numbers-block" id="pc">
     <div class="container animate-top">
         <svg width="100%" viewBox="0 0 1600 400">
             <defs>
                 <linearGradient id="PSgrad_03" x1="80.279%" x2="0%"  y2="0%">
                     <stop offset="0%" stop-color="rgb(50, 50, 255)" stop-opacity="1" />
                     <stop offset="100%" stop-color="rgb(54, 100, 255)" stop-opacity="1" />
-
                 </linearGradient>
-
             </defs>
-
-
-            <path fill-rule="evenodd"  fill="url(#PSgrad_03)"
-                  d="M98.891,386.002 L1527.942,380.805 C1581.806,380.610 1599.093,335.367 1570.005,284.353 L1480.254,126.948 C1458.704,89.153 1408.314,59.820 1366.025,57.550 L298.504,0.261 C238.784,-2.944 166.619,25.419 138.312,70.265 L16.944,262.546 C-24.214,327.750 12.103,386.317 98.891,386.002 Z"></path>
-
+            <path fill-rule="evenodd"  fill="url(#PSgrad_03)" d="M98.891,386.002 L1527.942,380.805 C1581.806,380.610 1599.093,335.367 1570.005,284.353 L1480.254,126.948 C1458.704,89.153 1408.314,59.820 1366.025,57.550 L298.504,0.261 C238.784,-2.944 166.619,25.419 138.312,70.265 L16.944,262.546 C-24.214,327.750 12.103,386.317 98.891,386.002 Z"></path>
             <clipPath id="ctm" fill="none">
-                <path
-                        d="M98.891,386.002 L1527.942,380.805 C1581.806,380.610 1599.093,335.367 1570.005,284.353 L1480.254,126.948 C1458.704,89.153 1408.314,59.820 1366.025,57.550 L298.504,0.261 C238.784,-2.944 166.619,25.419 138.312,70.265 L16.944,262.546 C-24.214,327.750 12.103,386.317 98.891,386.002 Z"></path>
+                <path d="M98.891,386.002 L1527.942,380.805 C1581.806,380.610 1599.093,335.367 1570.005,284.353 L1480.254,126.948 C1458.704,89.153 1408.314,59.820 1366.025,57.550 L298.504,0.261 C238.784,-2.944 166.619,25.419 138.312,70.265 L16.944,262.546 C-24.214,327.750 12.103,386.317 98.891,386.002 Z"></path>
             </clipPath>
-
-
-            <image  clip-path="url(#ctm)" xlink:href="{% static 'images/word-map.png' %}" height="800px" width="100%" class="svg__image">
-
-            </image>
-
+            <image clip-path="url(#ctm)" xlink:href="{% static 'images/word-map.png' %}" height="1000px" width="100%" class="svg__image"></image>
         </svg>
         <div class="row" style="text-align: center;justify-content:center">
             <div class="col-3">
                 <div class="card pop">
                     <div class="card-body">
                         <h5 class="card-title">+1000</h5>
-                        <p class="card-text">Students <i class="fa fa-user"></i></p>
+                        <p class="card-title">Students <i class="fa fa-user"></i></p>
                     </div>
                 </div>
             </div>
@@ -216,7 +255,7 @@
                 <div class="card pop">
                     <div class="card-body">
                         <h5 class="card-title">+650</h5>
-                        <p class="card-text">Tutors <i class="fa fa-street-view"></i></p>
+                        <p class="card-title">Tutors <i class="fa fa-street-view"></i></p>
                     </div>
                 </div>
             </div>
@@ -224,7 +263,7 @@
                 <div class="card pop">
                     <div class="card-body">
                         <h5 class="card-title">29</h5>
-                        <p class="card-text">States <i class="fa fa-map-marker"></i></p>
+                        <p class="card-title">States <i class="fa fa-map-marker"></i></p>
                     </div>
                 </div>
             </div>
@@ -232,11 +271,74 @@
                 <div class="card pop">
                     <div class="card-body">
                         <h5 class="card-title">Many</h5>
-                        <p class="card-text">Happy Clients <i class="fa fa-smile-o"></i></p>
+                        <p class="card-title">Happy Clients <i class="fa fa-smile-o"></i></p>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
+</div>
+<div class="container-fluid" id="mobile">
+  <div class="row animate-bottom">
+    <div class="col-md-3 col-sm-6 my-2">
+      <div class="serviceBox blue">
+        <div class="service-icon">
+          <span><i class="fa fa-user"></i></span>
+        </div>
+        <h1 class="title">+1000 <br>Students</h1>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 my-2">
+      <div class="serviceBox blue">
+        <div class="service-icon">
+          <span><i class="fa fa-street-view"></i></span>
+        </div>
+        <h3 class="title">+650<br>Tutors</h3>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 my-2">
+      <div class="serviceBox blue">
+        <div class="service-icon">
+          <span><i class="fa fa-map-marker"></i></span>
+        </div>
+        <h3 class="title">29<br>States</h3>
+      </div>
+    </div>
+    <div class="col-md-3 col-sm-6 my-2">
+      <div class="serviceBox blue">
+        <div class="service-icon">
+          <span><i class="fa fa-smile-o"></i></span>
+        </div>
+        <h3 class="title">Many<br>Happy Clients</h3>
+        </div>
+    </div>
+  </div>
+</div>
+<div class="container animate-right" style="margin-top:5%;" id="pricing">
+    <div class="text-center ">
+      <span class="text-secondary text-uppercase">Pricing</span>
+      <h1 class="text-capitalize font-weight-bold">Pricing <span style="color: #4853f3;">Plans <i class="fa fa-money"></i></span></h1>
+    </div>
+
+    <div class="my-5 py-4 px-5  d-md-flex align-items-center justify-content-between price pop" >
+      <div class="text-center">
+        <span style="font-weight: 600;">PRO MEMBER</span>
+        <h1 class="my-2 font-weight-bold">from Rs 99</h1>
+        <small class="text-uppercase text-secondary">/Month + GST</small>
+      </div>
+      <div class="text-center text-uppercase text-secondary">
+        <small class="d-block" >Pro User Account</small>
+        <small class="d-block my-3" >Monthly Plan</small>
+        <small class="d-block" >24/7 Support</small>
+      </div>
+      <div class="text-center text-uppercase text-secondary">
+        <small class="d-block" >Unlimited Tutors</small>
+        <small class="d-block my-3" >Contact Details</small>
+        <small class="d-block" >Verified Tutors</small>
+      </div>
+      <div class="text-center">
+        <a href="{% url 'dashboard:pro_member' %}" class="btn text-white px-5 py-3 pop" style="background-color: #525efc; border-radius: 30px;">Get Started <i class="fa fa-money"></i></a>
+      </div>
     </div>
 </div>
 <div class="container-fluid tutor-testimonials" id="testimonials">
@@ -282,9 +384,6 @@
         </div>
     </div>
 </div>
-
-
-
 <footer class="container-fluid animate-bottom" id="tutor-footer">
     
     <section class="contact" id="contact" >
@@ -330,7 +429,7 @@
                     <div href="tel:+91-7080040292" class="single-contact">
                        <i class="fa fa-phone"></i>
                        <h5>Phone</h5>
-                       <p>+91 7080040292</p>
+                       <p>+91-7080040292</p>
                     </div>
                     <div href="mailto:contact@gurudekho.com" class="single-contact">
                        <i class="fa fa-envelope"></i>
