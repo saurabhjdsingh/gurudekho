@@ -7,7 +7,8 @@ from django.utils import timezone
 from django.contrib.auth import get_user_model
 from django.contrib.auth.models import User
 import razorpay
-client = razorpay.Client(auth=("rzp_test_ALgOPQkNZjhmdJ", "gWJofbxymxYZVZZDjKQyOTNJ"))
+from decouple import config
+client = razorpay.Client(auth=(config("RAZORPAY_KEY"), config("RAZORPAY_SECRET")))
 UserModel = get_user_model()
 
 
@@ -133,7 +134,8 @@ def pro_member(request):
             pay = Payment(profile=profile, payment_amount=payment_amount, payment_date=timezone.now(), payment_id=payment_id, email=pay_email, phone_number=pay_contact, captured=pay.get('captured'))
             pay.save()
         return redirect('dashboard:tutors')
-    return render(request, 'dashboard/pro_member.html')
+    RAZORPAY_KEY = config("RAZORPAY_KEY")
+    return render(request, 'dashboard/pro_member.html', {'key':RAZORPAY_KEY})
 
 
 @login_required
