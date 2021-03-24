@@ -2,9 +2,9 @@
 {% load static %}
 {% block body_block %}
 <style>.login-wrap{max-width:550px;min-height:500px;}</style>
-        <div class="body hey py-5">
-            <form>
-            {% csrf_token %}
+    <div class="body hey py-5">
+        <form>
+        {% csrf_token %}
             <div class="login-wrap hey">
                 <div class="login-html" style="background-color:rgba(255, 255, 255, 0.65)">
                     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"><h2>Get In Touch !</h2></label>
@@ -71,11 +71,10 @@
                           </div>
                       </label>
                       <p id="validate"></p>
-            </form>
           </section>
         </div>
         </div>
-        </div>
+            </div>
         </form>
-</div>
+    </div>
  {% endblock %}
