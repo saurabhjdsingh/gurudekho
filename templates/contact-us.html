@@ -1,0 +1,79 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body_block %}
+<style>.login-wrap{max-width:550px;min-height:500px;}</style>
+<div class="body hey py-5">
+    <form>
+        {% csrf_token %}
+        <div class="login-wrap hey">
+            <div class="login-html" style="background-color:rgba(255, 255, 255, 0.65)">
+                <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"><h2>Get In Touch !</h2></label>
+                <div class="login-form my-1">
+                <label id="name" class="is-visible">
+                  <label class="label-heading" for="name">What's your Name?</label>
+                  <input name="name" type="text" placeholder=" Full Name" required />
+                  
+                  <div class="nav-btn-div" style='font-size:1.5rem'>
+                      <button type="button" class="nav-button" value="next" onclick="next('name','email')">OK <i class="fa fa-check" aria-hidden="true"></i></button>
+                      Press <strong>Enter ↵</strong>
+                 </div>
+                
+                  <div class="nav-btn-div">
+                      <i class="fa fa-arrow-down" style="font-size:34px" onclick="next('name','email')"></i>
+                  </div>
+              </label>
+                <label id="email">
+                      <label class="label-heading" for="email">Your Email Address</label>
+                      <input type="email" name="email" placeholder="abc@example.com" required />
+                      <br>
+                      <div class="nav-btn-div">
+                          <button type="button" class="nav-button" value="next" onclick="next('email','phone')">OK</button>
+                          Press <strong>Enter ↵</strong>
+                     </div>
+                      <div class="nav-btn-div">
+                          <i class="fa fa-arrow-up" style="font-size:34px" onclick="previous('email','name')"></i>
+                          <i class="fa fa-arrow-down" style="font-size:34px" onclick="next('email','phone')"></i>
+                      </div>
+                  </label>
+                <label id="phone">
+                      <label class="label-heading" for="phone">Phone Number</label>
+                      <input type="tel" name="phone" pattern="[7-9]{1}[0-9]{9}" placeholder="9080908010" required />
+                      <br>
+                      <div class="nav-btn-div">
+                          <button type="button" class="nav-button" value="next" onclick="next('phone','location')">OK <i class="fa fa-check" aria-hidden="true"></i></button>
+                          Press <strong>Enter ↵</strong>
+                     </div>
+                      <div class="nav-btn-div">
+                          <i class="fa fa-arrow-up" style="font-size:34px" onclick="previous('phone', 'email')"></i>
+                          <i class="fa fa-arrow-down" style="font-size:34px" onclick="next('phone','location')"></i>
+                      </div>
+                  </label>
+                <label id="location">
+                      <label class="label-heading" for="location">Where do you live ?</label>
+                      <input type="text" name="location" placeholder="Location"  required />
+                      <br>
+                      <div class="nav-btn-div">
+                          <button type="button" class="nav-button" value="next" onclick="next('location','message')">OK <i class="fa fa-check" aria-hidden="true"></i></button>
+                          Press <strong>Enter ↵</strong>
+                     </div>
+                      <div class="nav-btn-div">
+                          <i class="fa fa-arrow-up" style="font-size:34px" onclick="previous('location', 'phone')"></i>
+                          <i class="fa fa-arrow-down" style="font-size:34px" onclick="next('location','message')"></i>
+                      </div>
+                  </label>
+                <label id="message">
+                      <label class="label-heading" for="message">Your message?</label>
+                      <input name="message" type="text" placeholder="Type your message here !" required />
+                      <br>
+                      <div class="nav-btn-div">
+                          <i class="fa fa-arrow-up" style="font-size:34px" onclick="previous('message','location')"></i>
+                          <button type="submit" class="nav-button" value="submit" >Submit</button>
+                      </div>
+                  </label>
+                <p id="validate"></p>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+ {% endblock %}
