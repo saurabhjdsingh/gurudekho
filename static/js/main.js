@@ -114,7 +114,7 @@ document.getElementById("name")
   .addEventListener("keyup", function(e) {
     if (e.keyCode === 13) {
         e.preventDefault();
-        next('phone','age');
+        next('phone','location');
     }
   });
 
