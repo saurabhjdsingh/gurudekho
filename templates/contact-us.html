@@ -1,11 +1,26 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block body_block %}
-<style>.login-wrap{max-width:550px;min-height:500px;}</style>
+<style>.login-wrap{max-width:550px;min-height:500px;}label {
+  display: none;
+  letter-spacing: 4px;
+  padding-top: 30px;
+  text-align: center;
+}
+
+label.is-visible {
+  display: block;
+}
+
+label.label-heading p {
+  font-size: 20px;
+  color: black;
+}
+</style>
     <div class="body hey py-5">
         <form>
         {% csrf_token %}
-            <div class="login-wrap hey">
+            <div class="login-wrap hey animate-bottom">
                 <div class="login-html" style="background-color:rgba(255, 255, 255, 0.65)">
                     <input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab"><h2>Get In Touch !</h2></label>
                     <div class="login-form my-1">
@@ -19,7 +34,7 @@
                          </div>
                         
                           <div class="nav-btn-div">
-                              <i class="fa fa-arrow-down" style="font-size:34px" onclick="next('name','email')"></i>
+                              <i class="fa fa-arrow-down" style="font-size:34px;margin:15px" onclick="next('name','email')"></i>
                           </div>
                       </label>
                       <label id="email">
@@ -31,8 +46,8 @@
                               Press <strong>Enter ↵</strong>
                          </div>
                           <div class="nav-btn-div">
-                              <i class="fa fa-arrow-up" style="font-size:34px" onclick="previous('email','name')"></i>
-                              <i class="fa fa-arrow-down" style="font-size:34px" onclick="next('email','phone')"></i>
+                              <i class="fa fa-arrow-up" style="font-size:34px;margin:15px" onclick="previous('email','name')"></i>
+                              <i class="fa fa-arrow-down" style="font-size:34px;margin:15px" onclick="next('email','phone')"></i>
                           </div>
                       </label>
                       <label id="phone">
@@ -44,8 +59,8 @@
                               Press <strong>Enter ↵</strong>
                          </div>
                           <div class="nav-btn-div">
-                              <i class="fa fa-arrow-up" style="font-size:34px" onclick="previous('phone', 'email')"></i>
-                              <i class="fa fa-arrow-down" style="font-size:34px" onclick="next('phone','location')"></i>
+                              <i class="fa fa-arrow-up" style="font-size:34px;margin:15px" onclick="previous('phone', 'email')"></i>
+                              <i class="fa fa-arrow-down" style="font-size:34px;margin:15px" onclick="next('phone','location')"></i>
                           </div>
                       </label>
                       <label id="location">
@@ -57,8 +72,8 @@
                               Press <strong>Enter ↵</strong>
                          </div>
                           <div class="nav-btn-div">
-                              <i class="fa fa-arrow-up" style="font-size:34px" onclick="previous('location', 'phone')"></i>
-                              <i class="fa fa-arrow-down" style="font-size:34px" onclick="next('location','message')"></i>
+                              <i class="fa fa-arrow-up" style="font-size:34px;margin:15px" onclick="previous('location', 'phone')"></i>
+                              <i class="fa fa-arrow-down" style="font-size:34px;margin:15px" onclick="next('location','message')"></i>
                           </div>
                       </label>
                       <label id="message">
@@ -66,7 +81,7 @@
                           <input name="message" type="text" placeholder="Type your message here !" required />
                           <br>
                           <div class="nav-btn-div">
-                              <i class="fa fa-arrow-up" style="font-size:34px" onclick="previous('message','location')"></i>
+                              <i class="fa fa-arrow-up" style="font-size:34px;margin:15px" onclick="previous('message','location')"></i>
                               <button type="submit" class="nav-button" value="submit" >Submit</button>
                           </div>
                       </label>
