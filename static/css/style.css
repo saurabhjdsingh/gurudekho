@@ -1612,14 +1612,6 @@ z-index: 2; }
   color: black;
 }
 
-/* div.container {
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
 
 h1 {
   color: black;
@@ -1707,24 +1699,6 @@ input:-internal-autofill-selected {
   background-color: transparent;
 }
 
-/* button styling */
-
-/*button {*/
-/*  background: transparent;*/
-/*  color: #1a1717;*/
-/*  border: 2px solid #110e0e;*/
-/*  font-size: 25px;*/
-/*  letter-spacing: 2px;*/
-/*  padding: 20px 75px;*/
-/*  text-transform: uppercase;*/
-/*  cursor: pointer;*/
-/*  display: inline-block;*/
-/*  margin: 15px 30px;*/
-/*  -webkit-transition: all 0.4s;*/
-/*  -moz-transition: all 0.4s;*/
-/*  transition: all 0.4s;*/
-/*}*/
-
 button:hover,
 button:focus {
   background-color: black;
@@ -1746,14 +1720,6 @@ button:focus {
   color: rgb(0, 0, 0);
   outline: none;
 }
-
-/*select.multiple {*/
-/*  min-height: 220px;*/
-/*}*/
-
-/*select.multiple option {*/
-/*  margin-top: 4%;*/
-/*}*/
 
 #validate {
   color: #a01414;
@@ -1779,9 +1745,6 @@ i {
   right: 7%;
 }
 
-/*select[name='availability-days'] {*/
-/*  min-height: 100px;*/
-/*}*/
 
 label.label-heading {
   display: block;
