@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from dashboard.models import faq
 
 def index(request):
     return render(request, 'index.html')
@@ -9,7 +10,11 @@ def contact(request):
 
 
 def about(request):
-    return render(request, 'about.html')
+    faqs = faq.objects.all().order_by('-id')
+    if faqs:
+        return render(request, 'about.html', {'faq':faqs})
+    else:
+        return render(request, 'about.html')
     
 
 def terms(request):
@@ -18,3 +23,16 @@ def terms(request):
     
 def privacy(request):
     return render(request, 'privacy.html')
+
+def error_404(request, exception):
+    data = {}
+    return render(request, 'error/error_404.html', data)
+    
+def error_403(request, exception):
+    data = {}
+    return render(request, 'error/error_403.html', data)
+    
+def error_400(request, exception):
+    data = {}
+    return render(request, 'error/error_400.html', data)
+ 

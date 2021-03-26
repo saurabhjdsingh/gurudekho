@@ -2,6 +2,7 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.core.validators import RegexValidator
 from django.db.models.deletion import CASCADE
+from ckeditor.fields import RichTextField
 
 profession_CHOICES = [
     ('Student', 'Student'),
@@ -56,3 +57,10 @@ class Payment(models.Model):
     def __str__(self):
         return self.profile.user.username
     
+
+class faq(models.Model):
+    faq_title = models.CharField(max_length=200, unique=True)
+    faq_text = RichTextField(null=True, blank=True)
+    
+    def __str__(self):
+        return self.faq_title

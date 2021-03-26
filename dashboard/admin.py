@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.admin.options import ModelAdmin
-from dashboard.models import Profile, Tutor, Payment
+from dashboard.models import Profile, Tutor, Payment, faq
 
 
 class ProfileAdmin(ModelAdmin):
@@ -25,3 +25,10 @@ class PaymentAdmin(ModelAdmin):
     list_filter = ["payment_amount"]
     
 admin.site.register(Payment, PaymentAdmin)
+
+
+class faqAdmin(ModelAdmin):
+    list_display = ["faq_title"]
+    search_fields = ["faq_title"]
+    
+admin.site.register(faq, faqAdmin)
