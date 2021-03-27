@@ -510,6 +510,7 @@ padding:2px;
 .tutor-testimonials {
   position: relative;
   margin-top: 200px;
+  
 }
 @media (max-width: 767px) {
   .tutor-testimonials {
@@ -521,7 +522,7 @@ padding:2px;
   font-size: 36px;
   text-align: center;
   color: #333333;
-  margin-bottom: 100px;
+  margin-bottom:50px;
 }
 .tutor-testimonials .owl-stage-outer {
   padding-bottom: 30px;
@@ -530,6 +531,7 @@ padding:2px;
 .tutor-testimonials .owl-nav {
   display: none;
   outline:none;
+
 }
 .tutor-testimonials .owl-dots {
   text-align: center;
@@ -1659,9 +1661,7 @@ position: relative; }
   cursor: pointer; }
 
 /* ==========================
-
   Contact
-
 =============================*/
 .contact-us {
 position: relative;
@@ -1757,14 +1757,7 @@ z-index: 2; }
   color: black;
 }
 
-/* div.container {
-  position: relative;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-} */
+
 
 h1 {
   color: black;
@@ -2122,13 +2115,14 @@ a,a:hover{text-decoration: none;}
 
 #container{
   box-shadow: 0 15px 30px 1px grey;
-  background: rgba(255, 255, 255, 0.90);
+  background: rgba(255, 255, 255, 0.60);
   text-align: center;
   border-radius: 5px;
   overflow: hidden;
   margin: 5em auto;
   height: 450px;
   width: auto;
+  text-align: center;
 }
 
 
