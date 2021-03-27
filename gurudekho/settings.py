@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook',
     'allauth.socialaccount.providers.google',
     'django.contrib.sites',
-    'ckeditor'
+    'ckeditor',
+    'storages'
 ]
 
 SITE_ID = 1
@@ -135,8 +136,15 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
 ]
 
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
+AWS_SECRET_ACCESS_KEY = config("AWS_SECRET_ACCESS_KEY")
+AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
+AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
+AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
+
+PUBLIC_MEDIA_LOCATION = 'media'
+MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
+DEFAULT_FILE_STORAGE = 'gurudekho.storage_backends.PublicMediaStorage'
 
 LOGIN_REDIRECT_URL = 'dashboard:tutors'
 LOGIN_URL = reverse_lazy('accounts:signin')
