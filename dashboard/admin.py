@@ -5,7 +5,7 @@ from dashboard.models import Profile, Tutor, Payment, faq
 
 class ProfileAdmin(ModelAdmin):
     list_display = ["user", "profession", "subscription_type"]
-    search_fields = ["profession", "city"]
+    search_fields = ["user__username","profession", "city"]
     list_filter = ["profession", "is_pro", "subscription_type"]
     
 admin.site.register(Profile, ProfileAdmin)
