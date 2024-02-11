@@ -2,7 +2,6 @@ import os
 from pathlib import Path
 from decouple import config
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 DEBUG = DEBUG = config('DEBUG', default=True, cast=bool)
 
 if DEBUG:
@@ -20,7 +19,7 @@ if DEBUG:
     ]
 
 else:
-
+    
     DATABASES = {
         'default': {
             'ENGINE': 'django.db.backends.postgresql_psycopg2',
@@ -31,8 +30,7 @@ else:
             'PORT': '5432',
         }
     }
-
-
+    STATIC_ROOT = os.path.join(BASE_DIR, 'static')
     STATIC_URL = '/static/'
     STATICFILES_DIRS = [
     ]
