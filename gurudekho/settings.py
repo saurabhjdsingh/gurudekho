@@ -1,13 +1,14 @@
 import os
 from django.urls import reverse_lazy
 from decouple import config
+from pathlib import Path
 
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = Path(__file__).resolve().parent.parent
 TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 
-SECRET_KEY = config("SECRET_KEY")
+SECRET_KEY = "y9b4#id)oi^od@hfn5$sh_i5kv^&21l)r@!+3x#sel0foz#7hs"
 
-DEBUG = DEBUG = config('DEBUG', default=False, cast=bool)
+DEBUG = DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = ["*"]
 
@@ -95,12 +96,8 @@ SOCIALACCOUNT_PROVIDERS = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': config('DB_NAME'),
-        'USER': config('DB_USER'),
-        'PASSWORD': config('DB_PASS'),
-        'HOST': config('DB_HOST'),
-        'PORT': '5432',
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
@@ -131,9 +128,8 @@ USE_L10N = True
 USE_TZ = True
 
 STATIC_URL = '/static/'
-import os
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
 ]
 
 AWS_ACCESS_KEY_ID = config("AWS_ACCESS_KEY_ID")
@@ -142,16 +138,16 @@ AWS_STORAGE_BUCKET_NAME = config("AWS_STORAGE_BUCKET_NAME")
 AWS_S3_CUSTOM_DOMAIN = '%s.s3.amazonaws.com' % AWS_STORAGE_BUCKET_NAME
 AWS_S3_OBJECT_PARAMETERS = {'CacheControl': 'max-age=86400'}
 
-PUBLIC_MEDIA_LOCATION = 'media'
-MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-DEFAULT_FILE_STORAGE = 'gurudekho.storage_backends.PublicMediaStorage'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 LOGIN_REDIRECT_URL = 'dashboard:tutors'
 LOGIN_URL = reverse_lazy('accounts:signin')
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST = config("EMAIL_HOST")
+DEFAULT_FROM_EMAIL = config("EMAIL_USER")
+EMAIL_HOST_USER = config("EMAIL_USERNAME")
+EMAIL_HOST_PASSWORD = config("EMAIL_HOST_PASSWORD")
 EMAIL_USE_TLS = True
 EMAIL_PORT = 587
